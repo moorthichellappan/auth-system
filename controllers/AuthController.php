@@ -17,9 +17,9 @@ class AuthController {
                 header('Location: login.php');
                 exit;
             } elseif ($registrationResult === 'exists') {
-                echo "User already exists.";
+                echo '<div class="alert alert-warning" style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px;">User already exists.</div>';
             } else {
-                echo "Registration failed.";
+                echo '<div class="alert alert-danger alert-warning-centered">Registration failed.</div>';
             }
         }
     }
