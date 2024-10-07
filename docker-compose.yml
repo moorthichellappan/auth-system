@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-app
+    ports:
+      - "8080:80" # Map host port 8080 to the application container port 80
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: auth_system
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80" # Map host port 8081 to phpMyAdmin container port 80
+    environment:
+      PMA_HOST: db # Hostname of the MySQL server
+      PMA_USER: user # MySQL user
+      PMA_PASSWORD: user_password # Updated to match the MySQL user password
+    depends_on:
+      - db
+
+volumes:
+  db_data:
