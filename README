@@ -1,0 +1,32 @@
+# Basic User Authentication System
+
+This project implements a simple user authentication system with **registration**, **login**, and **logout** functionality using PHP and MySQL. The system includes security features such as password hashing, CSRF protection, and input sanitization.
+
+## Features
+- User Registration (username, email, password)
+- Input validation (unique username, valid email, strong password)
+- Secure password storage using `password_hash()`
+- Login with sessions
+- Logout functionality
+- CSRF protection and input sanitization
+
+## Setup
+
+### Prerequisites
+- Docker and Docker Compose installed
+
+### Steps
+
+1. Clone the repository: git clone https://github.com/moorthichellappan/auth-system.git
+
+2. Build the Docker containers: docker compose build
+
+3. Start the containers: docker compose up -d
+
+4. Access phpMyAdmin using the port specified
+
+5. Execute the SQL query located in db/tables.sql within phpMyAdmin to create the database tables.
+
+6. Restart the Docker containers: Docker compose up -d
+
+7. Navigate to the php-app container's port to access the application .
