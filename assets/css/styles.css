@@ -108,6 +108,10 @@ main {
         text-align: center;
     }    
 
+    small.password-cond ul li {
+        font-size: x-small;
+    }
+
     input[type="text"],
     input[type="email"],
     input[type="password"] {
